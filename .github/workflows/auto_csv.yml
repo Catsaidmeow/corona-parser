@@ -13,9 +13,21 @@ jobs:
       with:
           python_version: 3.8.0
           poetry_version: 0.12.17
-    - name: Run pytest
+          args:
+            - install
+    - name: Run main.py
       uses: abatilo/actions-poetry@v1.5.0
       with:
         python_version: 3.8.0
         poetry_version: 0.12.17
         args: run python main.py
+    - name: Commit updated cases
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Update cases" -a
+    - name: Push updated cases
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: auto_cases
