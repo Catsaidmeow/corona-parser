@@ -21,7 +21,7 @@ jobs:
     - name: Install
       run: poetry install
     - name: Run main.py
-      run: sudo poetry run $GITHUB_WORKSPACE/main.py
+      run: poetry run python $GITHUB_WORKSPACE/main.py
     - name: Commit updated cases
       run: |
         git config --local user.email "action@github.com"
