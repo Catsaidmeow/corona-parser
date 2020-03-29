@@ -13,8 +13,7 @@ jobs:
       with:
           python_version: 3.8.0
           poetry_version: 0.12.17
-          args:
-            - install
+          args: install
     - name: Run main.py
       uses: abatilo/actions-poetry@v1.5.0
       with:
